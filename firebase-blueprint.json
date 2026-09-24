@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role, email, phone, and verification states.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "name": { "type": "string" },
+        "status": { "type": "string" },
+        "role": { "type": "string" },
+        "emailVerifiedAt": { "type": "string" },
+        "phoneVerifiedAt": { "type": "string" },
+        "oneSignalPlayerId": { "type": "string" },
+        "oneSignalExternalId": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "Listing": {
+      "title": "Listing",
+      "description": "An advertisement created by an advertising owner.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" },
+            "address": { "type": "string" }
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "featured": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "attributes": { "type": "object" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "price", "categoryId"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Hierarchical taxonomy category node with dynamic attributes schema.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "parentId": { "type": "string" },
+        "nameTr": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "slug": { "type": "string" },
+        "icon": { "type": "string" },
+        "maxImages": { "type": "number" },
+        "attributes": { "type": "array" }
+      },
+      "required": ["id", "nameTr", "nameEn", "slug"]
+    },
+    "Email": {
+      "title": "Email",
+      "description": "Simulated sent emails on the platform.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "subject": { "type": "string" },
+        "body": { "type": "string" },
+        "sentAt": { "type": "string" }
+      },
+      "required": ["id", "from", "to", "subject", "body", "sentAt"]
+    },
+    "Advertisement": {
+      "title": "Advertisement",
+      "description": "Advertisement banner with metadata, dates and target link.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "owner": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "link": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "status": { "type": "string" },
+        "metadata": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "owner", "imageUrl", "link", "startDate", "endDate", "status", "createdAt"]
+    },
+    "AdClickLog": {
+      "title": "AdClickLog",
+      "description": "User clicks and metrics on active advertisements.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "adId": { "type": "string" },
+        "adTitle": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "clickedAt": { "type": "string" },
+        "userAgent": { "type": "string" }
+      },
+      "required": ["id", "adId", "adTitle", "clickedAt", "userAgent"]
+    },
+    "ExchangeRates": {
+      "title": "ExchangeRates",
+      "description": "Multi-currency exchange rates and conversion factors.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "rates": { "type": "object" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["id", "rates"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Individual user document."
+    },
+    "/listings/{listingId}": {
+      "schema": "Listing",
+      "description": "Individual classified ad document."
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Taxonomy node."
+    },
+    "/emails/{emailId}": {
+      "schema": "Email",
+      "description": "Outgoing simulated mail."
+    },
+    "/advertisements/{adId}": {
+      "schema": "Advertisement",
+      "description": "Platform banner advertisement."
+    },
+    "/ad_clicks/{clickId}": {
+      "schema": "AdClickLog",
+      "description": "Metrics logs of clicks on active ads."
+    },
+    "/exchange_rates/{rateId}": {
+      "schema": "ExchangeRates",
+      "description": "Active currency exchange rates."
+    }
+  }
+}

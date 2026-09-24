@@ -1,0 +1,6 @@
+{
+  "name": "Classified Ads Architecture Hub",
+  "description": "Interactive system architecture dashboard, database schema visualizer, API explorer, and mock simulators for advanced classified ads platforms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

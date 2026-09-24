@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-classifiedadsarc-4dd311da-d083-47e5-8eb4-1d06cb30e38a",
+      "rules": "firestore.rules"
+    }
+  ]
+}

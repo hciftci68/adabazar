@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Premium Light Theme Redefinition with superb contrast and modern clarity */
+  --color-neutral-950: #ffffff;         /* Clean page background */
+  --color-neutral-900: #e2e8f0;         /* Crisp panel backgrounds (one tone darker: Slate 200) */
+  --color-neutral-800: #cbd5e1;         /* Clear, visible border definitions (Slate 300) */
+  --color-neutral-700: #94a3b8;         /* Sturdier border/divider lines (Slate 400) */
+  --color-neutral-600: #64748b;         /* Muted helper text */
+  
+  --color-zinc-950: #ffffff;            /* White card backgrounds */
+  --color-zinc-900: #e2e8f0;            /* Inner components (one tone darker: Slate 200) */
+  --color-zinc-800: #cbd5e1;            /* Soft borders (Slate 300) */
+  --color-zinc-700: #94a3b8;            /* Input borders (Slate 400) */
+  --color-zinc-600: #94a3b8;            /* Secondary items */
+  --color-zinc-500: #64748b;            /* Muted labels */
+  --color-zinc-400: #475569;            /* Subheadings/body (Highly readable slate) */
+  --color-zinc-300: #334155;            /* Dark slate body text */
+  --color-zinc-200: #1e293b;            /* Strong text elements */
+  --color-zinc-100: #0f172a;            /* Primary bold text / headings */
+
+  --color-black: #ffffff;               /* Swapped for dark-to-light compatibility */
+  --color-white: #0f172a;               /* Swapped for dark-to-light compatibility */
+  
+  --color-amber-500: #c2410c;           /* Deep elegant amber-700/orange-700 for premium contrast */
+  --color-amber-400: #ea580c;           /* Vibrant medium amber-600/orange-600 */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar and custom styling overrides */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Subtle border animations and smooth focus rings for modern inputs */
+input, select, textarea {
+  transition: all 0.2s ease-in-out;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #c2410c !important;
+  box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.1) !important;
+}
